@@ -1,4 +1,4 @@
-// Quiz Questions
+
 const questions = [
   {
     question: "Which country is famous for the Eiffel Tower?",
