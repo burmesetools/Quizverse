@@ -1,5 +1,4 @@
 
-
 let currentQuestion = 0;
 let score = 0;
 
@@ -11,27 +10,42 @@ function showQuestion() {
   const q = questions[currentQuestion];
 
   document.querySelector(".card").innerHTML = `
-    <h2>Question ${currentQuestion + 1}/${questions.length}</h2>
+    <h1>QuizVerse</h1>
+    <h3>Question ${currentQuestion + 1}/${questions.length}</h3>
     <p>${q.question}</p>
-    ${q.options.map((option, index) =>
-      `<button onclick="checkAnswer(${index})">${option}</button><br><br>`
-    ).join("")}
+
+    <div>
+      ${q.options.map((option, index) => 
+        `<button onclick="checkAnswer(${index})">${option}</button>`
+      ).join("")}
+    </div>
+
+    <h3>Score: ${score}</h3>
   `;
 }
 
+
 function checkAnswer(selected) {
-  if (selected === questions[currentQuestion].answer) {
+
+  const correct = questions[currentQuestion].answer;
+
+  if(selected === correct){
     score++;
+    alert("Correct 🎉");
+  }
+  else{
+    alert("Wrong ❌");
   }
 
   currentQuestion++;
 
-  if (currentQuestion < questions.length) {
+  if(currentQuestion < questions.length){
     showQuestion();
-  } else {
+  }
+  else{
     document.querySelector(".card").innerHTML = `
-      <h2>Quiz Finished!</h2>
-      <p>Your Score: ${score}/${questions.length}</p>
+      <h1>Game Over 🎮</h1>
+      <h2>Your Score: ${score}/${questions.length}</h2>
       <button onclick="location.reload()">Play Again</button>
     `;
   }
