@@ -1,9 +1,4 @@
-let currentQuestion = 0;
-let score = 0;
 
-function startQuiz() {
-  showQuestion();
-}
 
 let currentQuestion = 0;
 let score = 0;
