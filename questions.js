@@ -11,7 +11,27 @@ const questions = [
   },
   {
     question: "Capital of Japan?",
-    options: ["Seoul", "Bangkok", "Tokyo", "Beijing"],
-    answer: 2
+    options: ["Seoul", "Tokyo", "Bangkok", "Beijing"],
+    answer: 1
+  },
+  {
+    question: "HTML stands for?",
+    options: [
+      "Hyper Text Markup Language",
+      "High Text Machine Language",
+      "Home Tool Markup Language",
+      "Hyper Transfer Markup Language"
+    ],
+    answer: 0
+  },
+  {
+    question: "CSS is used for?",
+    options: [
+      "Styling websites",
+      "Creating databases",
+      "Sending emails",
+      "Making videos"
+    ],
+    answer: 0
   }
 ];
