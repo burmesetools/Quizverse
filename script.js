@@ -6,35 +6,25 @@ let timer;
 function startQuiz() {
   showQuestion();
 }
-
 function showQuestion() {
   const q = questions[currentQuestion];
 
-  document.querySelector(".card").document.querySelector(".card").innerHTML = `
-  <h2>Question ${currentQuestion + 1}/${questions.length}</h2>
+  document.querySelector(".card").innerHTML = `
+    <h2>Question ${currentQuestion + 1}/${questions.length}</h2>
 
-  <h3 id="timer">⏳ 15</h3>
+    <h3 id="timer">⏳ 15</h3>
 
-  <p>${q.question}</p>
-
-  ${q.options.map((option, index) =>
-    `<button onclick="checkAnswer(${index})">${option}</button><br><br>`
-  ).join("")}
-`;=startTimer(); `
-    <h1>QuizVerse</h1>
-    <h3>Question ${currentQuestion + 1}/${questions.length}</h3>
     <p>${q.question}</p>
 
-    <div>
-      ${q.options.map((option, index) => 
-        `<button onclick="checkAnswer(${index})">${option}</button>`
-      ).join("")}
-    </div>
+    ${q.options.map((option, index) =>
+      `<button onclick="checkAnswer(${index})">${option}</button><br><br>`
+    ).join("")}
 
     <h3>Score: ${score}</h3>
   `;
-}
 
+  startTimer();
+}
 
 function checkAnswer(selected) {
 clearInterval(timer);
