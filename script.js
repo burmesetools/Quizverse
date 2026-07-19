@@ -1,7 +1,8 @@
 
 let currentQuestion = 0;
 let score = 0;
-
+let timeLeft = 15;
+let timer;
 function startQuiz() {
   showQuestion();
 }
@@ -9,7 +10,7 @@ function startQuiz() {
 function showQuestion() {
   const q = questions[currentQuestion];
 
-  document.querySelector(".card").innerHTML = `
+  document.querySelector(".card").innerHTML =startTimer(); `
     <h1>QuizVerse</h1>
     <h3>Question ${currentQuestion + 1}/${questions.length}</h3>
     <p>${q.question}</p>
@@ -26,7 +27,7 @@ function showQuestion() {
 
 
 function checkAnswer(selected) {
-
+clearInterval(timer);
   const correct = questions[currentQuestion].answer;
 
   if(selected === correct){
@@ -49,4 +50,17 @@ function checkAnswer(selected) {
       <button onclick="location.reload()">Play Again</button>
     `;
   }
+}
+function startTimer() {
+  clearInterval(timer);
+  timeLeft = 15;
+
+  timer = setInterval(() => {
+    timeLeft--;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      checkAnswer(-1);
+    }
+  }, 1000);
 }
