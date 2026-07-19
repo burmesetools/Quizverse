@@ -75,3 +75,10 @@ function checkAnswer(selected) {
     `;
   }
 }
+function showLeaderboard() {
+  alert("🏆 Leaderboard Coming Soon!");
+}
+
+function showAbout() {
+  alert("🎵 QuizVerse v1.0\nMade with ❤️");
+}
