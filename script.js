@@ -10,7 +10,17 @@ function startQuiz() {
 function showQuestion() {
   const q = questions[currentQuestion];
 
-  document.querySelector(".card").innerHTML =startTimer(); `
+  document.querySelector(".card").document.querySelector(".card").innerHTML = `
+  <h2>Question ${currentQuestion + 1}/${questions.length}</h2>
+
+  <h3 id="timer">⏳ 15</h3>
+
+  <p>${q.question}</p>
+
+  ${q.options.map((option, index) =>
+    `<button onclick="checkAnswer(${index})">${option}</button><br><br>`
+  ).join("")}
+`;=startTimer(); `
     <h1>QuizVerse</h1>
     <h3>Question ${currentQuestion + 1}/${questions.length}</h3>
     <p>${q.question}</p>
@@ -57,7 +67,7 @@ function startTimer() {
 
   timer = setInterval(() => {
     timeLeft--;
-
+document.getElementById("timer").textContent = "⏳ " + timeLeft;
     if (timeLeft <= 0) {
       clearInterval(timer);
       checkAnswer(-1);
